@@ -1,0 +1,721 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        c语言函数 |
+        
+        欢迎来到浅笙的阅读小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="C语言函数什么是函数？ 是完成特定任务的独立程序代码 是构成程序的基本模块  为什么要使用函数？  可以省去编写重复代码的苦闷 可以让程序模块化，提高代码可读性 方便后期修改、完善 隐藏了实现的细节   函数还有很多叫法，比如方法、子例程或程序，等等。   函数分类从用户角度  标准函数，即库函数 C语言封装好的函数，非常丰富 例如： —输入&#x2F;输出：scanf(),printf(),ra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言函数">
+<meta property="og:url" content="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="欢迎来到浅笙的阅读小屋">
+<meta property="og:description" content="C语言函数什么是函数？ 是完成特定任务的独立程序代码 是构成程序的基本模块  为什么要使用函数？  可以省去编写重复代码的苦闷 可以让程序模块化，提高代码可读性 方便后期修改、完善 隐藏了实现的细节   函数还有很多叫法，比如方法、子例程或程序，等等。   函数分类从用户角度  标准函数，即库函数 C语言封装好的函数，非常丰富 例如： —输入&#x2F;输出：scanf(),printf(),ra">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210423152421318.png">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210423153605307.png">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210423162424734.png">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210423193349232.png">
+<meta property="article:published_time" content="2023-07-11T19:39:02.000Z">
+<meta property="article:modified_time" content="2023-07-11T19:39:37.804Z">
+<meta property="article:author" content="浅笙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210423152421318.png">
+    
+        <link rel="alternate" href="/atom.xml" title="欢迎来到浅笙的阅读小屋" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/001.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">少女祈祷中...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="c语言函数" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>c语言函数</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuanaxin.cn"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-c语言函数" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/" class="article-date-link">
+        <time datetime="2023-07-11T19:39:02.000Z"
+              itemprop="datePublished">2023-07-12</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h1 id="C语言函数"><a href="#C语言函数" class="headerlink" title="C语言函数"></a>C语言函数</h1><h2 id="什么是函数？"><a href="#什么是函数？" class="headerlink" title="什么是函数？"></a>什么是函数？</h2><ul>
+<li>是完成特定任务的独立程序代码</li>
+<li>是构成程序的基本模块</li>
+</ul>
+<p><strong>为什么要使用函数？</strong></p>
+<ul>
+<li>可以省去编写重复代码的苦闷</li>
+<li>可以让程序模块化，提高代码可读性</li>
+<li>方便后期修改、完善</li>
+<li>隐藏了实现的细节</li>
+</ul>
+<blockquote>
+<p>函数还有很多叫法，比如方法、子例程或程序，等等。</p>
+</blockquote>
+<p><img src="D:/桌面/全栈开发/img/image-20210423152421318.png" alt="image-20210423152421318"></p>
+<h2 id="函数分类"><a href="#函数分类" class="headerlink" title="函数分类"></a>函数分类</h2><p><strong>从用户角度</strong></p>
+<ul>
+<li>标准函数，即库函数<ul>
+<li>C语言封装好的函数，非常丰富</li>
+<li>例如：<ul>
+<li>—输入&#x2F;输出：scanf(),printf(),rand()…</li>
+<li>—数学计算：sqrt(),abs(),sin()…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自定义函数<ul>
+<li>自己编写的用来完成特定任务的代码块</li>
+</ul>
+</li>
+</ul>
+<p><strong>从函数形式</strong></p>
+<ul>
+<li>无参函数：getchar()</li>
+<li>有参函数：putchar(‘a’)</li>
+</ul>
+<h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><p>和变量一样，要想使用一个函数，定义是不可缺少的，函数定义有4个要素：<font color=red>返回类型，函数名和函数体</font>，参数列表和返回类型对应着输入输出，函数名是函数的标识，而函数体是一段可执行的代码块，实现特定的算法或功能。</p>
+<p><img src="D:/桌面/全栈开发/img/image-20210423153605307.png" alt="image-20210423153605307"></p>
+<p>如果我们要写一个功能，用来获取两个数中的最大值，我们可能这样写。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&gt;b?a:b;</span><br></pre></td></tr></table></figure>
+
+<p>这样写，是很好的，但是当我们需要多次使用的时候，代码将变得不清晰，此时我们可以用一个函数对这个功能进行封装，把结果进行返回。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后使用函数名加上实参即可调用该函数，然后可以使用一个变量接受函数的返回值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> res = <span class="built_in">max</span>(<span class="number">2</span>,<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这个过程中，我们提到了参数这个概念：</p>
+<ul>
+<li><p>函数定义时参数列表中的叫做<font color=red>形参</font> <code>形参可以接受实参传过来的值</code></p>
+</li>
+<li><p>函数调用时参数列表中的叫做<font color=red>实参</font> <code>实参会赋值给形参，让函数内部进行操作</code></p>
+</li>
+<li><p><strong>注意：</strong></p>
+<ul>
+<li>函数的传参过程，只是单纯的值传递</li>
+<li>所以在函数内部改变形参的值，不会影响到实参</li>
+<li>以下代码，在函数内部改变了形参，但是实参确没有变化 ↓</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    num++;</span><br><span class="line">    <span class="built_in">printf</span>(num);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a =<span class="number">3</span>;</span><br><span class="line">	<span class="built_in">foo</span>(a);</span><br><span class="line">	<span class="built_in">printf</span>(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">output:num:<span class="number">4</span>  a:<span class="number">3</span> </span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>打个形象的比方，这是角色和演员的关系。</p>
+<p>函数定义时列表中的参数称为形参，是“剧本角色”，而函数调用时传递进来的参数称为实参，是“演员”，函数执行的过程就是演戏的过程。</p>
+<p>程序刚开始执行的时候，编译器并不为形参分配存储空间，因为它只是个角色，不是实体，一直要到函数调用时，编译器为形参分配存储空间，并将实参的值复制给形参结合。可知，在foo(a)语句调用前，num不是真正的程序变量，一直到foo函数被调用，num才被创建，并用a为其赋值，找这种情况下，在函数内对num的处理并不影响a，这类似于“某个演员扮演的角色在戏中受伤，并不是说演员真的受伤了”，而且，在函数执行结束返回时，创建的形参被撤销，这类似于“戏演完了，剧中角色自然也就停止了”。</p>
+</blockquote>
+<h2 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h2><p>函数调用的一般形式为：函数名(实参列表)</p>
+<ul>
+<li><p>实参可以是常数、变量、表达式等，多个实参用逗号,分隔</p>
+<p><strong>函数的调用姿势有多种:</strong></p>
+<img src="D:/桌面/全栈开发/img/image-20210423162424734.png" alt="image-20210423162424734" style="zoom:67%;" />
+
+
+
+<p><strong>注意：</strong></p>
+<ul>
+<li>调用函数时不要忘记括号，尤其是无参函数</li>
+<li>调用函数时，实参与形参个数必须一致，类型尽量保持一致</li>
+<li>调用库函数时，应在程序头部用#incldue包含相关头文件</li>
+<li>函数调用不能作为左值</li>
+</ul>
+</li>
+</ul>
+<h2 id="函数声明-x2F-多文件编程"><a href="#函数声明-x2F-多文件编程" class="headerlink" title="函数声明&#x2F;多文件编程"></a>函数声明&#x2F;多文件编程</h2><ul>
+<li>函数<strong>声明</strong>会告诉编译器函数名称及如何调用函数。函数的实际主体可以单独定义。</li>
+</ul>
+<p><strong>函数声明包括以下几个部分</strong></p>
+<blockquote>
+<p>返回类型  函数名(参数列表);</p>
+</blockquote>
+<p>针对前面自定义的max函数，应该这样声明</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在函数声明中，参数的名称并不重要，只有参数的类型是必需的，因此下面也是有效的声明：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span>,<span class="type">int</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数声明必须和定义时的函数前面一致</p>
+</li>
+<li><p>函数原型的作用是告诉编译器与该函数有关的信息，让编译器知道函数的存在，以及存在的形式，即使函数暂时没有定义，也不会出错。</p>
+</li>
+</ul>
+<h2 id="函数与数组"><a href="#函数与数组" class="headerlink" title="函数与数组"></a><strong>函数与数组</strong></h2><p><strong>数组做函数参数</strong></p>
+<ul>
+<li><p>一维数组</p>
+<p>当我们写了一个数组之后，可能要多次输出所有元素，每输出一次都要写一个循环，非常的麻烦，这时就需要把数组传到函数里面去，当要输出数组的时候，调用该函数即可！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span> arr[],<span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//参数中int arr[] 中括号中可以写数组大小也可以不写，一般不写</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二维数组</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo1</span><span class="params">(<span class="type">int</span> arr[][<span class="number">5</span>], <span class="type">int</span> row)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; row; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">5</span>; k++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, arr[i][k]);</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//二维数组稍加麻烦一点，需要指定列数</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：在函数里面使用sizeof不能得到数组的实际大小，求得的只是指针的大小</p>
+</li>
+</ul>
+<h2 id="变量的作用域和生命周期"><a href="#变量的作用域和生命周期" class="headerlink" title="变量的作用域和生命周期"></a>变量的作用域和生命周期</h2><p><strong>根据变量的作用域不同，可分为局部变量和全局变量两种</strong></p>
+<ul>
+<li><p>变量的作用域</p>
+<ul>
+<li>变量起作用的范围</li>
+<li>就近原则</li>
+</ul>
+</li>
+<li><p>局部变量</p>
+<ul>
+<li>在函数内部或者某个控制块的内部定义的变量</li>
+<li>作用域：函数内部或控制块内部</li>
+<li>生命周期：从定义开始，到函数结束或者控制块结束</li>
+</ul>
+</li>
+<li><p>全局变量</p>
+<ul>
+<li>在函数外部定义的变量</li>
+<li>作用域：在同一文件中，所有函数都可以引用全局变量</li>
+<li>生命周期：从程序运行开始，到程序结束</li>
+</ul>
+</li>
+</ul>
+<p><strong>根据变量的生命周期不同，可分为静态变量和动态变量</strong></p>
+<p><img src="D:/桌面/全栈开发/img/image-20210423193349232.png" alt="image-20210423193349232"></p>
+<p><strong>自动(动态)变量</strong></p>
+<ul>
+<li>指的是局部变量，具体来说即是在控制流进入变量作用域时系统自动为其分配存储空间，并在离开作用域时释放空间的一类变量。</li>
+</ul>
+<p><strong>静态变量</strong></p>
+<ul>
+<li>1，在程序执行的整个过程中，都不释放内存</li>
+<li>2，静态变量在编译时初始化，仅初始化一次<code>如果没有初始值，将自动初始化为0</code></li>
+<li>3，作用域：定义的函数内部</li>
+</ul>
+<p><strong>寄存器变量</strong></p>
+<blockquote>
+<p>建议编译器将变量存储到CPU寄存器中</p>
+</blockquote>
+<ul>
+<li>1，编译器有自己的处理方式，不一定会接受你的建议</li>
+<li>2，一旦接受建议，把变量存到了寄存器里面，那么则不能对变量取地址(&amp;)</li>
+<li>3，只有局部变量和形参可以作为register变量，全局变量不行,静态变量也不行。</li>
+</ul>
+<p><strong>static和extern改变函数和变量的作用域</strong></p>
+<ul>
+<li><p>全局变量默认就是extern类型的，而且作用范围是整个项目；如果手动加上static，则表示让全局变量只能在当前文件中使用。（与static对应的就是extren，全局变量默认是extren）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*test.c*/</span></span><br><span class="line"><span class="type">int</span> number = <span class="number">520</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*main.c*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">int</span> number;		<span class="comment">//声明使用外部变量</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果在test.c中的变量定义前面加上static，则会产生如下错误</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt;main.obj : error LNK2001: 无法解析的外部符号 _number</span><br><span class="line"><span class="number">1</span>&gt;F:\MyCode\<span class="number">2048</span>\Debug\<span class="number">2048.</span>exe : fatal error LNK1120: <span class="number">1</span> 个无法解析的外部命令</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于函数来说也是如此</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*test.c*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">566</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*main.c*/</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="type">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, <span class="built_in">get</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h2><p>递归也是一种函数调用，只不过是函数自己调用自己，是一种特殊的函数调用，调用自己同调用别人是一模一样的。</p>
+<ul>
+<li>使用递归必须要满足的两个条件<ul>
+<li>要有递归公式。</li>
+<li>要有终止条件。</li>
+</ul>
+</li>
+<li>递归和循环的关系<ul>
+<li>递归和循环存在很多关系。理论上讲，所有的循环都可以转化成递归</li>
+<li>循环又称迭代。递归算法与迭代算法设计思路的主要区别在于：函数或算法是否具备收敛性！当且仅当一个算法存在预期的收敛效果时，采用递归算法才是可行的。否则就不能使用递归算法。所谓收敛性就是指要有终止条件，不能无休止地递归下去。</li>
+</ul>
+</li>
+<li>递归的优缺点<ul>
+<li>递归的优点是简化程序设计，结构简洁清晰，容易编程，可读性强，容易理解。在很多情况下使用递归是必要的，它往往能把复杂问题分解为更简单的步骤，而且能够反映问题的本质。我们一开始可能发现递归理解起来也不容易，这是因为我们的“见识”太少了！等将来学习树和图的时候你才能真正领会到递归是多么的“好理解”！</li>
+<li>递归的缺点也很明显：速度慢，运行效率低，对存储空间的占用比循环多。严格讲，循环几乎不浪费任何存储空间，而递归浪费的空间实在是太大了，而且速度慢。因为递归是用栈机制实现的，每深入一层都要占用一块栈数据区域。</li>
+</ul>
+</li>
+</ul>
+<p><strong>通过一个简单的程序了解递归</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">foo</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;I love you\n&quot;</span>);</span><br><span class="line">    <span class="built_in">foo</span>(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>递归求斐波拉契数列</strong></p>
+<p>前面我们已经学习了，用循环求斐波拉契数列，现在我们要用递归来实现。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">fibonacci</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>||n==<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fibonacci</span>(n - <span class="number">1</span>) + <span class="built_in">fibonacci</span>(n<span class="number">-2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>1.实现字符串常用函数，strcat，strcpy，strcmp函数</p>
+<p>2.模块化多关卡推箱子</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/" data-id="cljyp7zys0001k0ahfify9jkm" data-title="c语言函数"
+               class="article-share-link">Share</a>
+            
+            
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2016/11/29/06/20/red-1867767_1280.jpg" data-sizes="auto" alt="c语言分支与循环" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%88%86%E6%94%AF%E4%B8%8E%E5%BE%AA%E7%8E%AF/"></a>
+                <div class="article-nav-caption">Newer</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言分支与循环
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2017/12/10/13/37/christmas-3009949_1280.jpg" data-sizes="auto" alt="c语言联合与枚举" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E8%81%94%E5%90%88%E4%B8%8E%E6%9E%9A%E4%B8%BE/"></a>
+                <div class="article-nav-caption">Older</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言联合与枚举
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                浅笙
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    17k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:03
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+

@@ -1,0 +1,628 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        c语言分支与循环 |
+        
+        欢迎来到浅笙的阅读小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="C语言分支结构如果把写程序和写小说类比，变量常量等可以看成是字和词，函数可以看成是一个段落，运算符等可以看作是字词的组合方式（规则），那么，字词组成的句子就是小说的最小独立单元，表达了一定的意思，同样，程序的最小独立单元是“语句”，每个语句表达出完整的意义。     三种控制结构结构化程序设计提供了3种控制结构，分别是顺序结构、分支结构和循环结构，早在1966年，牛人Bohm和Jacopini便证">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言分支与循环">
+<meta property="og:url" content="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%88%86%E6%94%AF%E4%B8%8E%E5%BE%AA%E7%8E%AF/index.html">
+<meta property="og:site_name" content="欢迎来到浅笙的阅读小屋">
+<meta property="og:description" content="C语言分支结构如果把写程序和写小说类比，变量常量等可以看成是字和词，函数可以看成是一个段落，运算符等可以看作是字词的组合方式（规则），那么，字词组成的句子就是小说的最小独立单元，表达了一定的意思，同样，程序的最小独立单元是“语句”，每个语句表达出完整的意义。     三种控制结构结构化程序设计提供了3种控制结构，分别是顺序结构、分支结构和循环结构，早在1966年，牛人Bohm和Jacopini便证">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210408213138131.png">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210408213358198.png">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210415144145054.png">
+<meta property="article:published_time" content="2023-07-11T19:40:52.000Z">
+<meta property="article:modified_time" content="2023-07-11T19:41:34.385Z">
+<meta property="article:author" content="浅笙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/image-20210408213138131.png">
+    
+        <link rel="alternate" href="/atom.xml" title="欢迎来到浅笙的阅读小屋" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/001.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">少女祈祷中...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="c语言分支与循环" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>c语言分支与循环</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuanaxin.cn"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-c语言分支与循环" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%88%86%E6%94%AF%E4%B8%8E%E5%BE%AA%E7%8E%AF/" class="article-date-link">
+        <time datetime="2023-07-11T19:40:52.000Z"
+              itemprop="datePublished">2023-07-12</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h1 id="C语言分支结构"><a href="#C语言分支结构" class="headerlink" title="C语言分支结构"></a>C语言分支结构</h1><p>如果把写程序和写小说类比，变量常量等可以看成是字和词，函数可以看成是一个段落，运算符等可以看作是字词的组合方式（规则），那么，字词组成的句子就是小说的最小独立单元，表达了一定的意思，同样，程序的最小独立单元是“语句”，每个语句表达出完整的意义。</p>
+<img src="D:/桌面/全栈开发/img/image-20210408213138131.png" alt="image-20210408213138131" style="zoom: 50%;" />
+
+
+
+<h2 id="三种控制结构"><a href="#三种控制结构" class="headerlink" title="三种控制结构"></a>三种控制结构</h2><p>结构化程序设计提供了3种控制结构，分别是顺序结构、分支结构和循环结构，早在1966年，牛人Bohm和Jacopini便证明了，用此3种基本结构可以构成任意复杂的算法。3种基本控制结构如所示。</p>
+<p><img src="D:/桌面/全栈开发/img/image-20210408213358198.png" alt="image-20210408213358198"></p>
+<h3 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h3><p>顺序结构表示程序中的各操作是按照它们出现的先后顺序执行的。</p>
+<p>顺序结构是最简单的程序结构，也是最常用的程序结构，只要按照解决问题的顺序写出相应的语句就行，它的执行顺序是自上而下，依次执行。</p>
+<p>例如，a &#x3D; 3，b &#x3D; 5，现交换a，b的值，这个问题就好像交换两个杯子水，这当然要用到第三个杯子，假如第三个杯子是c，那么正确的程序为： c &#x3D; a； a &#x3D; b； b &#x3D; c； 执行结果是a &#x3D; 5，b &#x3D; c &#x3D; 3如果改变其顺序，写成：a &#x3D; b； c &#x3D; a； b &#x3D; c； 则执行结果就变成a &#x3D; b &#x3D; c &#x3D; 5，不能达到预期的目的，初学者最容易犯这种错误。</p>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>顺序结构的程序虽然能解决计算、输出等问题，但不能做判断再选择。对于要先做判断再选择的问题就要使用分支结构。分支结构的执行是依据一定的条件选择执行路径，而不是严格按照语句出现的物理顺序。</p>
+<h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式)    <span class="comment">//如果</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//表达式成立执行&#123;&#125;中的语句</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;表达式成立!\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;多条语句!\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line"><span class="comment">//当if语句不带&#123;&#125;  只管一条语句</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;2\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if_else语句"></a>if_else语句</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;表达式成立！\n&quot;</span>);    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;表达式不成立\n&quot;</span>);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-else-if-else语句"><a href="#if-else-if-else语句" class="headerlink" title="if_else if_ else语句"></a>if_else if_ else语句</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式)</span><br><span class="line">&#123;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(表达式<span class="number">2</span>)</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(表达式<span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">.....</span><br><span class="line"><span class="keyword">else</span>   <span class="comment">//上面两者之外的所有情况</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>来个练习</strong></p>
+<blockquote>
+<p>编写程序：从屏幕上输入一个学生的成绩(0-100)，对学生成绩进行评定：</p>
+<p>　　&lt;59为”E”</p>
+<p>​       &#x3D;&#x3D;59为经典语录</p>
+<p>​       60~69为”D”</p>
+<p>​       70~79为”C”</p>
+<p>​       80~89为”B”</p>
+<p>​       90以上为”A”</p>
+<p>​       &lt;0或&gt;100提示成绩输入出错</p>
+</blockquote>
+<h2 id="switch开关语句"><a href="#switch开关语句" class="headerlink" title="switch开关语句"></a><strong>switch开关语句</strong></h2><h3 id="基本形态"><a href="#基本形态" class="headerlink" title="基本形态"></a>基本形态</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">1</span>:</span><br><span class="line">         语句块<span class="number">1</span>；</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">2</span>:</span><br><span class="line">         语句块<span class="number">2</span>；</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//switch运行方式</span></span><br><span class="line"><span class="comment">//只做一次成功比较</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> userkey = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//No.1 基本形态</span></span><br><span class="line">	scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;userkey);</span><br><span class="line">	<span class="keyword">switch</span> (userkey)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;4&quot;</span>);</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;3&quot;</span>);</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n.....!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用形态"><a href="#常用形态" class="headerlink" title="常用形态"></a>常用形态</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">//No.2 常用形态: 结合break使用 </span></span><br><span class="line">	<span class="keyword">switch</span> (userkey)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;4&quot;</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;3&quot;</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="菜单交互"><a href="#菜单交互" class="headerlink" title="菜单交互"></a>菜单交互</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> 	<span class="comment">//菜单交互</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;0.退出\n&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;1.录入\n&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;2.浏览\n&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;3.删除\n&quot;</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;4.修改\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> key = <span class="number">0</span>;</span><br><span class="line">		scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;key);</span><br><span class="line">		<span class="keyword">switch</span> (key) </span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;录入.....\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;浏览.....\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;删除.....\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;修改.....\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;输入错误...\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (key == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">		system(<span class="string">&quot;cls&quot;</span>);</span><br><span class="line">	&#125;   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="按键交互"><a href="#按键交互" class="headerlink" title="按键交互"></a>按键交互</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;conio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//按键交互</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;如花们朝你蜂拥而来!...,请选择你的逃逸路线\n&quot;</span>);</span><br><span class="line">		<span class="type">int</span> key = _getch();</span><br><span class="line">		<span class="keyword">switch</span> (key)</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;W&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;w&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">72</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;你灰溜溜的往上方逃逸!\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;s&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;S&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">80</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;你灰溜溜的往下方逃逸!\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">75</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;你灰溜溜的往左方逃逸!\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">77</span>:</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;你灰溜溜的往右方逃逸!\n&quot;</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><ol>
+<li>从键盘上输入一个年份和月份，输出当前月份天数(注意闰年判断:(1)被4整除但不能被100整除;   或(2)被400整除;)</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写一个程序，输入某人的身高(cm）和体重(kg)，按下式确定其体重是否为标准、过胖或过瘦。<ul>
+<li>(1）标准体重&#x3D;身高-110;</li>
+<li>(2）超过标准体重5kg (即大于5kg）为过胖;</li>
+<li>(3)低于标准体重5kg (即小于5kg）为过瘦。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="C语言循环结构"><a href="#C语言循环结构" class="headerlink" title="C语言循环结构"></a>C语言循环结构</h1><p>有的时候，我们可能需要多次执行同一块代码。一般情况下，语句是按顺序执行的：函数中的第一个语句先执行，接着是第二个语句，依此类推。</p>
+<p>编程语言提供了更为复杂执行路径的多种控制结构。循环语句允许我们多次执行一个语句或语句组，下面是大多数编程语言中循环语句的流程图：</p>
+<p><img src="D:/桌面/全栈开发/img/image-20210415144145054.png" alt="image-20210415144145054"></p>
+<h2 id="循环类型"><a href="#循环类型" class="headerlink" title="循环类型"></a>循环类型</h2><p>C 语言提供了以下几种循环类型。</p>
+<p><strong>while循环</strong></p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(condition)</span><br><span class="line">&#123;</span><br><span class="line">    循环体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>规则</p>
+<ul>
+<li>只要condition为真，C 语言中的 <strong>while</strong> 循环语句会重复执行循环体。</li>
+</ul>
+</li>
+</ul>
+<p><strong>do…while循环</strong></p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">    循环体;</span><br><span class="line">&#125;<span class="keyword">while</span>(condition);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>规则</p>
+<ul>
+<li>不像 <strong>for</strong> 和 <strong>while</strong> 循环，它们是在循环头部测试循环条件。在 C 语言中，<strong>do…while</strong> 循环是在循环的尾部检查它的条件。</li>
+<li><strong>do…while</strong> 循环与 while 循环类似，但是 do…while 循环会确保至少执行一次循环。</li>
+</ul>
+</li>
+</ul>
+<p><strong>for 循环</strong></p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(init;condition;increment)</span><br><span class="line">&#123;</span><br><span class="line">    循环体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>规则</p>
+<ul>
+<li><p><strong>init</strong> 会首先被执行，且只会执行一次。这一步允许声明并初始化任何循环控制变量。您也可以不在这里写任何语句，只要有一个分号出现即可。</p>
+</li>
+<li><p>接下来，会判断 <strong>condition</strong>。如果为真，则执行循环体。如果为假，则不执行循环主体，且控制流会跳转到紧接着 for 循环的下一条语句。</p>
+</li>
+<li><p>在执行完 for 循环主体后，控制流会跳回上面的 <strong>increment</strong> 语句。该语句允许您更新循环控制变量。该语句可以留空，只要在条件后有一个分号出现即可。</p>
+</li>
+<li><p>条件再次被判断。如果为真，则执行循环，这个过程会不断重复（循环主体，然后增加步值，再然后重新判断条件）。直到条件变为假时，for 循环终止。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h2><p>循环控制语句改变你代码的执行顺序。通过它你可以实现代码的跳转。</p>
+<p>C 提供了下列三个循环控制语句。</p>
+<h5 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h5><p><strong>作用</strong>：终止<strong>循环</strong>或 <strong>switch</strong> 语句，程序流将继续执行紧接着循环或 switch 的下一条语句。</p>
+<ul>
+<li><p>break只能跳出一层循环，多层循环需要使用标志。</p>
+</li>
+<li><p>break不能用在处循环和switch之外的任意语句中。</p>
+</li>
+</ul>
+<h5 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h5><p><strong>作用：</strong>告诉一个循环体立刻停止本次循环迭代，重新开始下次循环迭代。</p>
+<ul>
+<li><strong>continue</strong> 语句有点像 <strong>break</strong> 语句。但它不是跳出，而是会跳过剩下的循环代码，直接开始下一次循环。</li>
+<li>对于 <strong>for</strong> 循环，<strong>continue</strong> 语句执行后自增语句仍然会执行。对于 <strong>while</strong> 和 <strong>do…while</strong> 循环，<strong>continue</strong> 语句执行后，重新执行条件判断语句。</li>
+</ul>
+<h5 id="goto语句"><a href="#goto语句" class="headerlink" title="goto语句"></a>goto语句</h5><p><strong>作用：</strong>将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。</p>
+<ul>
+<li><p>C 语言中的 <strong>goto</strong> 语句允许(在同一函数内)跳转到任何的被标记的语句。</p>
+<p><strong>注意：</strong>在任何编程语言中，都不建议使用 goto 语句。因为它使得程序的控制流难以跟踪，使程序难以理解和难以修改。任何使用 goto 语句的程序可以改写成不需要使用 goto 语句的写法。</p>
+</li>
+</ul>
+<h2 id="无限循环"><a href="#无限循环" class="headerlink" title="无限循环"></a>无限循环</h2><p>如果条件永远不为假，则循环将变成无限循环。<strong>for</strong> 循环在传统意义上可用于实现无限循环。由于构成循环的三个表达式中任何一个都不是必需的，您可以将某些条件表达式留空来构成一个无限循环。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>  </span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="keyword">for</span>( ; ; )   </span><br><span class="line">    &#123;      </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;该循环会永远执行下去！\n&quot;</span>);   </span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当条件表达式不存在时，它被假设为真。您也可以设置一个初始值和增量表达式，但是一般情况下，C 程序员偏向于使用 for(;;) 结构来表示一个无限循环。</p>
+<p><strong>注意：</strong>您可以按 <strong>Ctrl + C</strong> 键终止一个无限循环。</p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%88%86%E6%94%AF%E4%B8%8E%E5%BE%AA%E7%8E%AF/" data-id="cljyp7zyw0003k0ahexgmb6oa" data-title="c语言分支与循环"
+               class="article-share-link">Share</a>
+            
+            
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2014/03/26/17/50/sunset-298850_1280.jpg" data-sizes="auto" alt="c语言函数" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0/"></a>
+                <div class="article-nav-caption">Older</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言函数
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                浅笙
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    17k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:03
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+

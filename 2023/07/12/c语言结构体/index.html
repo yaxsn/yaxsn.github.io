@@ -1,0 +1,635 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        c语言结构体 |
+        
+        欢迎来到浅笙的阅读小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="结构体数组一个结构体变量可以存放一个学生的一组信息，可是如果有 10 个学生呢？难道要定义 10 个结构体变量吗？难道上面的程序要复制和粘贴 10 次吗？ 很明显不可能，这时就要使用数组。结构体中也有数组，称为结构体数组。它与前面讲的数值型数组几乎是一模一样的，只不过需要注意的是，结构体数组的每一个元素都是一个结构体类型的变量，都包含结构体中所有的成员项。 1struct Student stus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言结构体">
+<meta property="og:url" content="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/index.html">
+<meta property="og:site_name" content="欢迎来到浅笙的阅读小屋">
+<meta property="og:description" content="结构体数组一个结构体变量可以存放一个学生的一组信息，可是如果有 10 个学生呢？难道要定义 10 个结构体变量吗？难道上面的程序要复制和粘贴 10 次吗？ 很明显不可能，这时就要使用数组。结构体中也有数组，称为结构体数组。它与前面讲的数值型数组几乎是一模一样的，只不过需要注意的是，结构体数组的每一个元素都是一个结构体类型的变量，都包含结构体中所有的成员项。 1struct Student stus">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/3-1PZG61231195.jpg">
+<meta property="og:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/3-1PZG61432963.jpg">
+<meta property="article:published_time" content="2023-07-11T19:31:51.000Z">
+<meta property="article:modified_time" content="2023-07-11T19:32:43.707Z">
+<meta property="article:author" content="浅笙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/%E6%A1%8C%E9%9D%A2/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/img/3-1PZG61231195.jpg">
+    
+        <link rel="alternate" href="/atom.xml" title="欢迎来到浅笙的阅读小屋" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/001.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">少女祈祷中...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="c语言结构体" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>c语言结构体</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuanaxin.cn"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-c语言结构体" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date-link">
+        <time datetime="2023-07-11T19:31:51.000Z"
+              itemprop="datePublished">2023-07-12</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h2 id="结构体数组"><a href="#结构体数组" class="headerlink" title="结构体数组"></a>结构体数组</h2><p>一个结构体变量可以存放一个学生的一组信息，可是如果有 10 个学生呢？难道要定义 10 个结构体变量吗？难道上面的程序要复制和粘贴 10 次吗？</p>
+<p>很明显不可能，这时就要使用数组。结构体中也有数组，称为结构体数组。它与前面讲的数值型数组几乎是一模一样的，只不过需要注意的是，结构体数组的每一个元素都是一个结构体类型的变量，都包含结构体中所有的成员项。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">stus</span>[10];</span></span><br></pre></td></tr></table></figure>
+
+<p>这就定义了一个结构体数组，共有 10 个元素，每个元素都是一个结构体变量，都包含所有的结构体成员。</p>
+<p>下面编写一个程序，编程要求：从键盘输入 5 个学生的基本信息，如学号、姓名、年龄、性别，然后将年龄最大的学生的基本信息输出到屏幕。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    <span class="type">char</span> name[<span class="number">10</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">char</span> sex;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1001 小红 22 F</span></span><br><span class="line"><span class="comment">1002 小明 21 M</span></span><br><span class="line"><span class="comment">1003 小欣 23 F</span></span><br><span class="line"><span class="comment">1004 小天 20 F</span></span><br><span class="line"><span class="comment">1005 小黑 19 M</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">stus</span>[10];</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input %d stu&gt;&quot;</span>,i+<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %s %d %c&quot;</span>,&amp;stus[i].id,stus[i].name,&amp;stus[i].age,&amp;stus[i].sex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">maxStu</span> =</span> stus[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (maxStu.age &lt; stus[i].age)</span><br><span class="line">        &#123;</span><br><span class="line">            maxStu = stus[i];</span><br><span class="line">        &#125;         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %s %d %c\n&quot;</span>, maxStu.id,maxStu.name, maxStu.age, maxStu.sex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>input 1 stu&gt;1001 小红 22 F<br>input 2 stu&gt;1002 小明 21 M<br>input 3 stu&gt;1003 小欣 23 F<br>input 4 stu&gt;1004 小天 20 F<br>input 5 stu&gt;1005 小黑 19 M<br>1003 小欣 23 F</p>
+<p>结构体数组也是能够初始化的，我们将上面的程序修改一下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">stus</span>[10] =</span> &#123;&#123;<span class="number">1001</span>, <span class="string">&quot;小红&quot;</span>, <span class="number">22</span>, <span class="string">&#x27;F&#x27;</span>&#125;,&#123;<span class="number">1002</span>,<span class="string">&quot;小明&quot;</span> ,<span class="number">21</span>,<span class="string">&#x27; M&#x27;</span>&#125;,&#123;<span class="number">1003</span>,<span class="string">&quot;小欣&quot;</span> ,<span class="number">23</span>, <span class="string">&#x27;F&#x27;</span>&#125;,&#123;<span class="number">1004</span>, <span class="string">&quot;小天&quot;</span>, <span class="number">20</span>, <span class="string">&#x27;F&#x27;</span>&#125;,&#123;<span class="number">1005</span>, <span class="string">&quot;小黑&quot;</span>, <span class="number">19</span>, <span class="string">&#x27;M&#x27;</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">maxStu</span> =</span> stus[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (maxStu.age &lt; stus[i].age)</span><br><span class="line">        &#123;</span><br><span class="line">            maxStu = stus[i];</span><br><span class="line">        &#125;         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %s %d %c\n&quot;</span>, maxStu.id,maxStu.name, maxStu.age, maxStu.sex);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构体字节对齐"><a href="#结构体字节对齐" class="headerlink" title="结构体字节对齐"></a>结构体字节对齐</h2><p>每种类型在定义对象时，都会开辟内存，类型不同所占内存大小也不一样，用sizeof即可获取类型大小。</p>
+<p>思考：结构体占用的内存大小是多少呢？</p>
+<ul>
+<li>是成员所占内存的总和吗？</li>
+<li>还是有其他的处理方式？</li>
+</ul>
+<p>先来看几个例子吧：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;	<span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+
+<p>这个结构体大小为8个字节，看起来是成员大小的总和，实际上这只是个巧合：当成员类型全部一样时，结构体大小就等于每个成员大小之和。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">char</span> b;</span><br><span class="line">&#125;;	<span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+
+<p>这个结构体大小还是8个字节，为什么？这实际上是编译器对结构体的空间进行了优化，就是所谓的字节对齐。</p>
+<h3 id="什么是字节对齐？"><a href="#什么是字节对齐？" class="headerlink" title="什么是字节对齐？"></a>什么是字节对齐？</h3><p>从理论上讲，对于任何变量的访问都可以从任何地址开始访问，但是事实上不是如此，实际上访问特定类型的变量只能在特定的地址访问，这就需要各个变量在空间上按一定的规则排列，而不是简单地顺序排列，这就是内存对齐。</p>
+<h3 id="为什么要字节对齐？"><a href="#为什么要字节对齐？" class="headerlink" title="为什么要字节对齐？"></a>为什么要字节对齐？</h3><p>原因：</p>
+<ul>
+<li><p>某些平台只能在特定的地址处访问特定类型的数据；</p>
+</li>
+<li><p>提高存取数据的速度。比如有的平台每次都是从偶地址处读取数据，对于一个int型的变量，若从偶地址单元处存放，则只需一个读取周期即可读取该变量；但是若从奇地址单元处存放，则需要2个读取周期读取该变量。</p>
+</li>
+</ul>
+<h3 id="字节对齐规则"><a href="#字节对齐规则" class="headerlink" title="字节对齐规则"></a>字节对齐规则</h3><p>C语言标准并没有规定内存对齐的细节，而是交给具体的编译器去实现，但是对齐的基本原则是一样的。</p>
+<ul>
+<li><ol>
+<li>结构体变量的首地址能够被其最宽基本类型成员的大小所整除；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>结构体每个成员相对于结构体首地址的偏移量都是成员大小的整数倍，如有需要编译器会在成员之间加上填充字节；</li>
+</ol>
+</li>
+<li><p>结构体的总大小为结构体最宽基本类型成员大小的整数倍，如有需要编译器会在最末一个成员之后加上填充字节。</p>
+</li>
+</ul>
+<h2 id="位段-位域"><a href="#位段-位域" class="headerlink" title="位段(位域)"></a>位段(位域)</h2><h3 id="位段是什么？"><a href="#位段是什么？" class="headerlink" title="位段是什么？"></a>位段是什么？</h3><p>C语言允许在一个结构体中以位为单位来指定其成员所占内存长度，这种以位为单位的成员称为位段。利用位段能够用较少的位数存储数据。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> 结构体名</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  	  整数类型 位段名<span class="number">1</span> : 位段大小;</span><br><span class="line">      整数类型 位段名<span class="number">2</span> : 位段大小;</span><br><span class="line">      整数类型 位段名<span class="number">3</span> : 位段大小;</span><br><span class="line">      整数类型 位段名<span class="number">4</span> : 位段大小;</span><br><span class="line">      ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>整数类型：C语言标准规定，只有有限的几种数据类型可以用于位段。(所有整数类型以及char类型和_Bool类型)。</li>
+<li>位段名：即有效的标识符</li>
+<li>位段大小：此位段所占的位数，不能超过类型的最大位数。</li>
+</ul>
+<p><strong>范例：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BitField</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> a:<span class="number">1</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> b:<span class="number">4</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> c:<span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BitField</span> <span class="title">bit</span>=</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="comment">//输出</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;first:%d %d %d\n&quot;</span>,bit.a,bit.b,bit.c);</span><br><span class="line">    <span class="comment">//赋值</span></span><br><span class="line">    bit.a = <span class="number">2</span>;</span><br><span class="line">    bit.b = <span class="number">20</span>;</span><br><span class="line">    bit.c = <span class="number">8</span>;</span><br><span class="line">    <span class="comment">//再次输出</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;last:%d %d %d\n&quot;</span>,bit.a,bit.b,bit.c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fast:1 2 3</span><br><span class="line">last:0 4 0</span><br></pre></td></tr></table></figure>
+
+<p>第一次的输出结果都是完整的，第二次输出的结果令人摸不着头脑。</p>
+<ul>
+<li><p><strong>第一次输出时：</strong>a、b、c的值分别为1、2、3，转换成二进制分别是0b1、0b10、0b11，都没有超出限定的位数，能正常输出。</p>
+</li>
+<li><p><strong>第二次输出时：</strong>a、b、c的值分别为2、20、8，转换成二进制分别是0b10、0b10100、0b1000，所有位段都超出了限定的位数，不能正常输出。</p>
+<ul>
+<li>超出部分被直接截去(从高位开始截断，即从左往右)，截去之后的二进制分别为0b0、0b0100、0b000，换算成十进制分别为0、4、0</li>
+</ul>
+</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1、<strong>位段的内存分配：</strong>位段占的二进制位数不能超过该基本类型所能表示的最大位数，即位段不能跨字节存储，比如char是占1个字节，那么最多只能是8位；</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Bit</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  	<span class="type">char</span> a:<span class="number">3</span>;	<span class="comment">//right</span></span><br><span class="line">	<span class="type">char</span> b:<span class="number">9</span>;	<span class="comment">//error C2034: “d”: 位域类型对位数太小</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>2、<strong>位域的存储：</strong>C语言标准并没有规定位域的具体存储方式，不同的编译器有不同的实现，但它们都尽量压缩存储空间。</p>
+<p>当相邻成员的类型相同时，如果它们的位宽之和小于类型的 sizeof 大小，那么后面的成员紧邻前一个成员存储，直到不能容纳为止；如果它们的位宽之和大于类型的 sizeof 大小，那么后面的成员将从新的存储单元开始，其偏移量为类型大小的整数倍。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Bf1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">3</span>:</span><br><span class="line">    <span class="type">char</span> b:<span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//sizeof(struct Bf1) == 1</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Bf2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> a:<span class="number">3</span>:</span><br><span class="line">    <span class="type">char</span> b:<span class="number">3</span>;</span><br><span class="line">    <span class="type">char</span> c:<span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//sizeof(struct Bf2) == 2</span></span><br></pre></td></tr></table></figure>
+
+<p>3、<strong>禁止对位段取地址</strong>：地址是字节（Byte）的编号，而不是位（Bit）的编号。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;bit.a;		<span class="comment">//error C2104: 位域上的“&amp;”被忽略</span></span><br></pre></td></tr></table></figure>
+
+<p>4、<strong>无名位段：</strong>位域成员可以没有名称，只给出数据类型和位宽</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Bf</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a:<span class="number">12</span>;</span><br><span class="line">    <span class="type">int</span> :<span class="number">20</span>;</span><br><span class="line">    <span class="type">int</span> b:<span class="number">4</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>无名位域一般用来作填充或者调整成员位置。因为没有名称，无名位域不能使用。</p>
+<p>上面的例子中，如果没有位宽为 20 的无名成员，a、b 将会挨着存储，sizeof(struct Bf) 的结果为 4；有了这 20 位作为填充，a、b 将分开存储，sizeof(struct Bf) 的结果为 8。</p>
+<h1 id="C语言联合"><a href="#C语言联合" class="headerlink" title="C语言联合"></a>C语言联合</h1><p>联合也是一种数据类型，用户可自定义。不同于结构体成员——它们在结构中都具有单独的内存位置，联合成员则共享同一个内存位置。也就是说，联合中的所有成员都是从相同的内存地址开始。因此，可以定义一个拥有许多成员的联合，但是同一时刻只能有一个成员允许含有一个值。联合让程序员可以方便地通过不同方式使用同一个内存位置。</p>
+<h2 id="联合的定义"><a href="#联合的定义" class="headerlink" title="联合的定义"></a>联合的定义</h2><p>联合的定义方式与结构是一样的，只是把关键字 struct 改成 union：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">tag</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   member;</span><br><span class="line">   ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>下面的例子定义了一个名为Data的联合类型，它有 3 个成员：i、x 和 str：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">16</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这种类型的对象可以存储一个整数、一个浮点数或一个短字符串。如果想获得联合的空间大小，可以使用 sizeof 运算符。对上例来说，sizeof（union Data）会返回 16。</p>
+<p>如下图所示：联合中所有成员都是从内存中同一个地址开始的。</p>
+<p><img src="D:/桌面/全栈开发/img/3-1PZG61231195.jpg" alt="img"></p>
+<p>为展示联合和结构的差异，看看下面定义的 struct Record，它具有成员 i、x 和 str：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Record</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">16</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如下图所示：结构对象中每个成员使用内存中的不同位置。</p>
+<p><img src="D:/桌面/全栈开发/img/3-1PZG61432963.jpg" alt="img"></p>
+<p>获取联合成员的方式和获取结构成员的方式一样。唯一的差异在于，当改变一个联合成员的值时，实际上修改了该联合所有成员的值。</p>
+<p>程序员要确保联合对象的内存内容被正确地解释和使用。联合内成员的类型不同，允许程序员采用不同的方式解释内存中的同一组字节值。例如，下面的循环使用联合来展示一个 double 值在内存中的存储形式：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> <span class="title">var</span>;</span></span><br><span class="line">var.x = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="keyword">sizeof</span>(<span class="type">double</span>)<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%02X &quot;</span>,(<span class="type">unsigned</span> <span class="type">char</span>)var.str[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该循环从 var.x 的最高位字节开始，生成下面的输出：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3F</span> F4 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="联合的初始化"><a href="#联合的初始化" class="headerlink" title="联合的初始化"></a>联合的初始化</h2><p>与结构类似，通过初始化列表（initialization list）来初始化联合对象。但是，对联合来说，列表只有一个初始化器（initializer）。</p>
+<p>与结构一样，C99 允许在初始化器中使用成员指示符来指示哪个成员被初始化。而且，如果初始化器没有成员指示符，那么就与联合内的第一个成员关联。具有自动存储类的联合对象也可以使用已有的同类型对象来初始化。下面是一些初始化例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> <span class="title">var1</span> =</span> &#123; <span class="number">77</span> &#125;;</span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> <span class="title">var2</span> =</span> &#123; .str = <span class="string">&quot;Mary&quot;</span> &#125;;</span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> <span class="title">var3</span> =</span> var1;</span><br></pre></td></tr></table></figure>
+
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yuanaxin.cn/2023/07/12/c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="cljyp7zyy0005k0ah2ach0fax" data-title="c语言结构体"
+               class="article-share-link">Share</a>
+            
+            
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2016/11/29/06/20/red-1867767_1280.jpg" data-sizes="auto" alt="c语言联合与枚举" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E8%81%94%E5%90%88%E4%B8%8E%E6%9E%9A%E4%B8%BE/"></a>
+                <div class="article-nav-caption">Newer</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言联合与枚举
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2016/11/29/06/20/red-1867767_1280.jpg" data-sizes="auto" alt="c语言指针" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/"></a>
+                <div class="article-nav-caption">Older</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言指针
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                浅笙
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    17k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:03
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
