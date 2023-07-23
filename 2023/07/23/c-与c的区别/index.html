@@ -1,0 +1,524 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        c++与c的区别 |
+        
+        欢迎来到浅笙的阅读小屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="C++与C的区别一，第一个C++程序1. c++头文件2. c++命名空间3. c++入口函数123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++与c的区别">
+<meta property="og:url" content="http://yuanaxin.cn/2023/07/23/c-%E4%B8%8Ec%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="欢迎来到浅笙的阅读小屋">
+<meta property="og:description" content="C++与C的区别一，第一个C++程序1. c++头文件2. c++命名空间3. c++入口函数123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\yuananxin\Pictures\c++\01.png">
+<meta property="og:image" content="c:\Users\yuananxin\Pictures\c++\image-20230716140007155.png">
+<meta property="og:image" content="c:\Users\yuananxin\Pictures\c++\image-20230716220003492.png">
+<meta property="og:image" content="c:\Users\yuananxin\Pictures\c++\image-20230717025409739.png">
+<meta property="article:published_time" content="2023-07-23T07:19:56.000Z">
+<meta property="article:modified_time" content="2023-07-23T07:20:45.512Z">
+<meta property="article:author" content="浅笙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\yuananxin\Pictures\c++\01.png">
+    
+        <link rel="alternate" href="/atom.xml" title="欢迎来到浅笙的阅读小屋" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/001.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">少女祈祷中...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="c++与c的区别" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>c++与c的区别</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuanaxin.cn"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-c-与c的区别" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/07/23/c-%E4%B8%8Ec%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date-link">
+        <time datetime="2023-07-23T07:19:56.000Z"
+              itemprop="datePublished">2023-07-23</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h1 id="C-与C的区别"><a href="#C-与C的区别" class="headerlink" title="C++与C的区别"></a>C++与C的区别</h1><h2 id="一，第一个C-程序"><a href="#一，第一个C-程序" class="headerlink" title="一，第一个C++程序"></a>一，第一个C++程序</h2><h3 id="1-c-头文件"><a href="#1-c-头文件" class="headerlink" title="1. c++头文件"></a>1. c++头文件</h3><h3 id="2-c-命名空间"><a href="#2-c-命名空间" class="headerlink" title="2. c++命名空间"></a>2. c++命名空间</h3><h3 id="3-c-入口函数"><a href="#3-c-入口函数" class="headerlink" title="3. c++入口函数"></a>3. c++入口函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>    <span class="comment">//1.标准c+头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;myhead.h&quot;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    1.c++当中头文件可以采用类名的方式直接包含，不需要.h</span></span><br><span class="line"><span class="comment">    2.如果想要包含c语言标准库中的头文件，可以采用.h方式包含,也可以采用去掉.h 直接在头文件前面加个c</span></span><br><span class="line"><span class="comment">    3.包含自定义头文件，不可以采用缺少.h的方式写法</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;     <span class="comment">//2.标准命名空间</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    1.C++中只支持int返回值类型的函数</span></span><br><span class="line"><span class="comment">    2.c++中主函数的参数没有什么要求，可以写参数，也可以不写</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   1.如何自己写一个命名空间</span></span><br><span class="line"><span class="comment">      namespace 空间名</span></span><br><span class="line"><span class="comment">      &#123;</span></span><br><span class="line"><span class="comment">           //函数</span></span><br><span class="line"><span class="comment">           //变量</span></span><br><span class="line"><span class="comment">           //自定义类型</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">    2.学会如何调用空间中的数据</span></span><br><span class="line"><span class="comment">        空间名::成员;</span></span><br><span class="line"><span class="comment">    3.省略的方式 调用空间中的成员</span></span><br><span class="line"><span class="comment">       using namespace 空间;</span></span><br><span class="line"><span class="comment">       注意点:省略多个前缀的时候，要注意的问题同名问题 二义性问题</span></span><br><span class="line"><span class="comment">    4.命名空间的嵌套</span></span><br><span class="line"><span class="comment">       剥洋葱</span></span><br><span class="line"><span class="comment">    作业：</span></span><br><span class="line"><span class="comment">       NO.1 在一定程度上增加标识符的使用率</span></span><br><span class="line"><span class="comment">       NO.2 在大型项目可以有效避免起名冲突</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">namespace</span> mm1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello word mm1\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">MM</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> age;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> mm2</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello word mm2\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//命名空间的嵌套</span></span><br><span class="line"><span class="keyword">namespace</span> boy</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">namespace</span> mm</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> age;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;boy::mm\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span>               <span class="comment">//3.入口函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">strcpy</span>(mm1::name, <span class="string">&quot;小可爱&quot;</span>);</span><br><span class="line">    <span class="built_in">strcpy</span>(mm2::name, <span class="string">&quot;小可爱&quot;</span>);</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">mm1</span>::MM mm = &#123; <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, mm.age);</span><br><span class="line">    mm2::<span class="built_in">print</span>(); <span class="comment">//SDL 否 //对于strcpy，vs会做出改进</span></span><br><span class="line">    </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">using</span> <span class="keyword">namespace</span> mm1;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    boy::mm::<span class="built_in">print</span>();</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> boy::mm;</span><br><span class="line">    <span class="built_in">print</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="C:\Users\yuananxin\Pictures\c++\01.png" alt="image-20230713194426083"></p>
+<h2 id="二，C-基本的输入和输出"><a href="#二，C-基本的输入和输出" class="headerlink" title="二，C++ 基本的输入和输出"></a>二，C++ 基本的输入和输出</h2><h3 id="1-c-输出cout"><a href="#1-c-输出cout" class="headerlink" title="1. c++输出cout"></a>1. c++输出cout</h3><h3 id="2-c-输入cin"><a href="#2-c-输入cin" class="headerlink" title="2. c++输入cin"></a>2. c++输入cin</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> num = <span class="number">0</span>; <span class="comment">//全局变量</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">		<span class="comment">//NO1.C++基本输出</span></span><br><span class="line">	    <span class="comment">//1.1 单数据的时候</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;我是最美的，你也不错！&quot;</span>);</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;我是最美的，你也不错&quot;</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, <span class="number">1</span>);</span><br><span class="line">		cout &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		<span class="comment">//1.2 输出多个数据</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d%s%1.lf&quot;</span>, <span class="number">1</span>, <span class="string">&#x27;你好&#x27;</span>, <span class="number">1.1</span>);</span><br><span class="line">		cout &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">&quot;你好&quot;</span> &lt;&lt; <span class="number">1.1</span>;</span><br><span class="line">		<span class="comment">//1.3关于格式控制</span></span><br><span class="line">		<span class="comment">//c++依旧支持c语言的控制字符，不需要考虑c++的控制格式</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//换行</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n1.\n&quot;</span>);</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;2.\n&quot;</span>;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;3.&quot;</span> &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="string">&quot;你好呀&quot;</span> &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="number">1</span> &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//1.4 输出多个变量</span></span><br><span class="line">		<span class="type">int</span> inum = <span class="number">1</span>;</span><br><span class="line">		<span class="type">char</span> str[<span class="number">20</span>] = <span class="string">&quot;你好&quot;</span>;</span><br><span class="line">		<span class="type">double</span> dnum = <span class="number">1.1</span>;</span><br><span class="line">		cout &lt;&lt; inum &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; dnum &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">		<span class="comment">//NO2. C++基本输入</span></span><br><span class="line">		<span class="comment">//1. 输出单个数据</span></span><br><span class="line">		cin &gt;&gt; inum &gt;&gt; str &gt;&gt; dnum;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;inum=&quot;</span> &lt;&lt; inum &lt;&lt; <span class="string">&quot;str=&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot;dnum=&quot;</span> &lt;&lt; dnum;</span><br><span class="line">		<span class="comment">//NO.3 注意的几个现象</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//NO.3命名空间</span></span><br><span class="line">	<span class="comment">//1.命名空间</span></span><br><span class="line">	<span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	std::cout &lt;&lt; <span class="number">1</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cin &gt;&gt; temp;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;temp=&quot;</span> &lt;&lt; temp;</span><br><span class="line">	<span class="comment">//2.别致写法</span></span><br><span class="line">	<span class="comment">//有using namespace</span></span><br><span class="line">	::cout &lt;&lt; <span class="string">&quot;i love you&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="type">int</span> cout = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> num = <span class="number">111</span>;</span><br><span class="line">	std::cout &lt;&lt; num &lt;&lt; std::endl; <span class="comment">//就近原则</span></span><br><span class="line">	std::cout &lt;&lt; ::num &lt;&lt; std::endl;<span class="comment">//::标识全局的变量</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三，C-新增数据类型"><a href="#三，C-新增数据类型" class="headerlink" title="三，C++ 新增数据类型"></a>三，C++ 新增数据类型</h2><h3 id="1-新的空指针"><a href="#1-新的空指针" class="headerlink" title="1.新的空指针"></a>1.新的空指针</h3><h3 id="2-bool类型"><a href="#2-bool类型" class="headerlink" title="2. bool类型"></a>2. bool类型</h3><h3 id="3-引用类型"><a href="#3-引用类型" class="headerlink" title="3.引用类型"></a>3.引用类型</h3><h3 id="4-anto类型"><a href="#4-anto类型" class="headerlink" title="4. anto类型"></a>4. anto类型</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">size</span><span class="params">(<span class="type">int</span> listcursize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> listcursize == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//引用充当函数参数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">modifynum</span><span class="params">(<span class="type">int</span> &amp;inum)</span>   <span class="comment">//int &amp;inum = mm</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	inum = <span class="number">1007</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//引用充当函数返回值：增加左值使用</span></span><br><span class="line"><span class="function"><span class="type">int</span>&amp; <span class="title">returnvalue</span><span class="params">(<span class="type">int</span>&amp; inum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> inum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;inum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; inum &lt;&lt; endl; <span class="comment">//常引用不能修改inum++，局限性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printvalue</span><span class="params">(<span class="type">int</span>&amp;&amp; inum)</span> <span class="comment">//右值引用，inum++可以修改</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	inum++;</span><br><span class="line">	cout &lt;&lt; inum &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MM</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义东西时不能推断，要赋值</span></span><br><span class="line"><span class="comment">//auto sum(auto a, auto b)</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//	return a + b;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//NO.1 新空指针</span></span><br><span class="line">	<span class="type">int</span>* p = <span class="literal">NULL</span>;      <span class="comment">//(void *)0;</span></span><br><span class="line">	<span class="type">int</span>* cpp = <span class="literal">nullptr</span>;  <span class="comment">//空指针</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">NO.2 新的数据之bool;</span></span><br><span class="line"><span class="comment">	 2.1 bool代表的是真和假</span></span><br><span class="line"><span class="comment">     2.2 bool打印的只有0或1</span></span><br><span class="line"><span class="comment">	 2.3 在计算机中非零值和非空值都表示成立(真)</span></span><br><span class="line"><span class="comment">	 2.4 bool占用内存，1个字节</span></span><br><span class="line"><span class="comment">	 2.5通常情况 bool 是充当条件，判断函数的返回值，或者充当开关标记使用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">	<span class="type">bool</span> bnum = <span class="number">-1</span>;</span><br><span class="line">	cout &lt;&lt; bnum &lt;&lt; endl;  <span class="comment">// 1</span></span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">bool</span>) &lt;&lt; endl;  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NO.3 引用类型</span></span><br><span class="line"><span class="comment">//3.1 基本用法：起别名</span></span><br><span class="line">	<span class="type">int</span> mm = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span>&amp; 小可爱 = mm;</span><br><span class="line">	小可爱 = <span class="number">1001</span>;   </span><br><span class="line">	cout &lt;&lt; mm &lt;&lt; endl;  <span class="comment">//输出 1001</span></span><br><span class="line"><span class="comment">//3.2 引用充当函数返回值或者函数参数</span></span><br><span class="line">	<span class="built_in">modifynum</span>(mm);</span><br><span class="line">	cout &lt;&lt; mm &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//注意点：不能返回局部变量引用</span></span><br><span class="line">	<span class="built_in">returnvalue</span>(mm) = <span class="number">122</span>;</span><br><span class="line">	<span class="comment">//int &amp;returnvalue(mm) = inum;</span></span><br><span class="line">	cout &lt;&lt; mm &lt;&lt; endl;  <span class="comment">//输出</span></span><br><span class="line"><span class="comment">//3.3右值引用</span></span><br><span class="line"><span class="comment">//3.1常引用可以表达右值   //加上const</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="number">12</span>);           <span class="comment">//12</span></span><br><span class="line">	<span class="built_in">printvalue</span>(<span class="number">1234</span>);    <span class="comment">//inum++   1235</span></span><br><span class="line">	<span class="comment">//右值是常量，左值是变量</span></span><br><span class="line">	<span class="comment">// printvalue(mm)出错，对于右值引用不能传变量</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//右值引用如何传左值引用</span></span><br><span class="line">	<span class="built_in">printvalue</span>(<span class="built_in">move</span>(mm));  <span class="comment">//讲左值转换为右值</span></span><br><span class="line"><span class="comment">//NO.4 aoto 自动推断类型</span></span><br><span class="line">	<span class="built_in">int</span> (*pmax)(<span class="type">int</span>, <span class="type">int</span>) = max;  <span class="comment">//麻烦</span></span><br><span class="line">	<span class="keyword">auto</span> pfunc = max;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">pfunc</span>(<span class="number">1</span>, <span class="number">2</span>) &lt;&lt; endl;  <span class="comment">//3</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">MM</span> object = &#123; <span class="number">1</span> &#125;;</span><br><span class="line">	<span class="keyword">auto</span> pobject = &amp;object;       <span class="comment">//struct MM*</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四，C-函数思想"><a href="#四，C-函数思想" class="headerlink" title="四，C++函数思想"></a>四，C++函数思想</h2><h3 id="1-c-内敛思想"><a href="#1-c-内敛思想" class="headerlink" title="1. c++内敛思想"></a>1. c++内敛思想</h3><h3 id="2-c-函数重载"><a href="#2-c-函数重载" class="headerlink" title="2. c++函数重载"></a>2. c++函数重载</h3><h3 id="3-c-函数缺省"><a href="#3-c-函数缺省" class="headerlink" title="3. c++函数缺省"></a>3. c++函数缺省</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//NO.1 函数内敛</span></span><br><span class="line"><span class="comment">//1.1 内联函数的特点：短小精悍</span></span><br><span class="line"><span class="comment">//1.2 inline 修饰</span></span><br><span class="line"><span class="comment">//1.3 如果在结构体中或者类中实现的函数默认为内联函数</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b ? a : b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//NO.2 函数重载：允许同名不同参的函数存在 </span></span><br><span class="line"><span class="comment">//2.1 参数个数不同</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; a + b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.2 参数的类型不同</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> a, <span class="type">char</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; a + b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.3 参数的顺序不同:一定是存在不同的基础之上  </span></span><br><span class="line">      <span class="comment">//  void print(int b, int a)//错误</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; a + b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//NO.3 函数缺省:就是给函数初始化</span></span><br><span class="line"><span class="comment">//注意：缺省的顺序只能从右往左连续性的缺省</span></span><br><span class="line"><span class="comment">//     多文件中 只需要在.h声明中缺省</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> a=<span class="number">0</span>, <span class="type">int</span> b=<span class="number">0</span>, <span class="type">int</span> c=<span class="number">0</span>, <span class="type">int</span> d=<span class="number">0</span>)</span> <span class="comment">//从右边缺省，不能空格</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">print</span>(<span class="number">1</span>, <span class="number">2</span>);    <span class="comment">//3</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="number">1</span>);       <span class="comment">//1</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&#x27;A&#x27;</span>, <span class="number">2</span>);  <span class="comment">//67</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="number">1</span>, <span class="string">&#x27;A&#x27;</span>);  <span class="comment">//66</span></span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="built_in">sum</span>(<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sum</span>() &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sum</span>(<span class="number">1</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sum</span>(<span class="number">1</span>,<span class="number">2</span>) &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五，C-动态内存申请"><a href="#五，C-动态内存申请" class="headerlink" title="五，C++动态内存申请"></a>五，C++动态内存申请</h2><h3 id="1-c-new和delete"><a href="#1-c-new和delete" class="headerlink" title="1. c++ new和delete"></a>1. c++ new和delete</h3><h3 id="2-c-内存池"><a href="#2-c-内存池" class="headerlink" title="2. c++ 内存池"></a>2. c++ 内存池</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;assert.h&gt;</span>  <span class="comment">//断言</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//1.申请一个变量内存</span></span><br><span class="line">	<span class="type">int</span>* pcnum = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">int</span>));<span class="comment">//c</span></span><br><span class="line">	<span class="built_in">free</span>(pcnum);</span><br><span class="line">    </span><br><span class="line">	<span class="type">int</span>* pcppnum = <span class="keyword">new</span> <span class="type">int</span>;<span class="comment">//c++</span></span><br><span class="line">	<span class="keyword">delete</span> pcppnum;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//2.申请一段内存</span></span><br><span class="line">	<span class="type">int</span>* pcarray = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">int</span>) * <span class="number">3</span>);<span class="comment">//c</span></span><br><span class="line">	<span class="built_in">free</span>(pcarray);</span><br><span class="line">    </span><br><span class="line">	<span class="type">int</span>* pcpparrary = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">3</span>];  <span class="comment">//c++</span></span><br><span class="line">	<span class="keyword">delete</span>[] pcpparrary;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//3.申请并且初始化</span></span><br><span class="line">	<span class="type">int</span>* palloc = (<span class="type">int</span>*)<span class="built_in">calloc</span>(<span class="built_in">sizeof</span>(<span class="type">int</span>), <span class="number">3</span>);</span><br><span class="line">	<span class="comment">//calloc是一个在C语言中使用的函数,void* calloc(size_t num, size_t size);</span></span><br><span class="line">	<span class="comment">//用于在堆内存中动态地分配一块内存空间，并将其初始化为零</span></span><br><span class="line">	cout &lt;&lt; palloc[<span class="number">0</span>] &lt;&lt; palloc[<span class="number">1</span>] &lt;&lt; palloc[<span class="number">2</span>] &lt;&lt; endl;  <span class="comment">//0000</span></span><br><span class="line">	<span class="keyword">if</span> (palloc == <span class="literal">nullptr</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//按安全性考虑</span></span><br><span class="line">	<span class="built_in">free</span>(palloc);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//3.1c++单个数据初始化()</span></span><br><span class="line">	<span class="type">int</span>* pnum = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">100</span>);</span><br><span class="line">	cout &lt;&lt; *pnum &lt;&lt; endl; <span class="comment">//0</span></span><br><span class="line">	<span class="keyword">delete</span> pnum;</span><br><span class="line">	pnum = <span class="literal">nullptr</span>; <span class="comment">//注意全空，避免野指针</span></span><br><span class="line">	<span class="comment">//3.2 c++多个数据初始化&#123;&#125;</span></span><br><span class="line">	<span class="type">int</span>* parray = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">3</span>] &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">	cout &lt;&lt; parray[<span class="number">0</span>] &lt;&lt; parray[<span class="number">1</span>] &lt;&lt; parray[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">delete</span>[] parray;</span><br><span class="line">	parray = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">//NO.4 内存池:允许我们在申请的内存上做申请操作</span></span><br><span class="line">	<span class="type">char</span>* memory = <span class="keyword">new</span> <span class="type">char</span>[<span class="number">1024</span>];</span><br><span class="line">	<span class="built_in">assert</span>(memory);</span><br><span class="line">	<span class="type">int</span>* pint = <span class="built_in">new</span>(memory + <span class="number">0</span>)<span class="type">int</span>[<span class="number">3</span>] &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;  <span class="comment">//12字节存储整数</span></span><br><span class="line">	<span class="built_in">assert</span>(pint);</span><br><span class="line">	<span class="type">char</span>* pchar = <span class="built_in">new</span>(memory + <span class="number">12</span>) <span class="type">char</span>[<span class="number">20</span>] &#123;<span class="string">&quot;你好&quot;</span>&#125;;</span><br><span class="line">	<span class="built_in">assert</span>(pchar);</span><br><span class="line">	<span class="comment">//strcpy(pchar, &quot;你好&quot;);</span></span><br><span class="line">	cout &lt;&lt; pint[<span class="number">0</span>] &lt;&lt; pint[<span class="number">1</span>] &lt;&lt; pint[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; ((<span class="type">int</span>*)memory)[<span class="number">0</span>] &lt;&lt; ((<span class="type">int</span>*)memory)[<span class="number">1</span>] &lt;&lt; ((<span class="type">int</span>*)memory)[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; pchar &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; memory + <span class="number">12</span> &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//释放</span></span><br><span class="line">	<span class="keyword">delete</span>[] memory;</span><br><span class="line">	memory = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\yuananxin\Pictures\c++\image-20230716140007155.png" alt="image-20230716140007155"></p>
+<h2 id="六，C-结构体"><a href="#六，C-结构体" class="headerlink" title="六，C++结构体"></a>六，C++结构体</h2><h3 id="1-结构体的组成"><a href="#1-结构体的组成" class="headerlink" title="1.结构体的组成"></a>1.结构体的组成</h3><h3 id="2-如何访问结构体数据"><a href="#2-如何访问结构体数据" class="headerlink" title="2.如何访问结构体数据"></a>2.如何访问结构体数据</h3><h3 id="3-如何new一个对象"><a href="#3-如何new一个对象" class="headerlink" title="3.如何new一个对象"></a>3.如何new一个对象</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//1.c++定义结构体</span></span><br><span class="line"><span class="comment">//c++结构体允许函数的存在</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MM</span> </span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//数据成员</span></span><br><span class="line">	<span class="type">char</span> name[<span class="number">20</span>];</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="comment">//成员函数</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		cout &lt;&lt; name &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; age &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">printinfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//结构体外实现结构体中的函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MM::printinfo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; name &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; age &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//2.如何访问结构体中的成员</span></span><br><span class="line">	<span class="comment">//结构体中的成员,只能通过结构体变量(结构体指针)去访问</span></span><br><span class="line">	<span class="comment">//c++创建时候不再需要struct关键字</span></span><br><span class="line">	MM mm = &#123; <span class="string">&quot;小可爱&quot;</span>,<span class="number">18</span> &#125;;</span><br><span class="line">	cout &lt;&lt; mm.age &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; mm.name &lt;&lt; endl;</span><br><span class="line">	mm.<span class="built_in">print</span>();</span><br><span class="line">	MM* pMM = &amp;mm; </span><br><span class="line">	pMM-&gt;<span class="built_in">print</span>(); <span class="comment">//指针：用都是指针在指向运算符-&gt;</span></span><br><span class="line">    <span class="comment">//3.如何去new一个对象</span></span><br><span class="line">	<span class="type">int</span>* pint = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line">	MM* pobject = <span class="keyword">new</span> MM;</span><br><span class="line">	<span class="built_in">strcpy</span>(pobject-&gt;name, <span class="string">&quot;小仙女&quot;</span>);</span><br><span class="line">	pobject-&gt;age = <span class="number">19</span>;</span><br><span class="line">	pobject-&gt;<span class="built_in">print</span>();</span><br><span class="line">	<span class="comment">//new一个结构体数组</span></span><br><span class="line">	MM* parray = <span class="keyword">new</span> MM[<span class="number">4</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">strcpy</span>(parray[i].name, <span class="string">&quot;MM&quot;</span>);</span><br><span class="line">		parray[i].age = i * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		parray[i].<span class="built_in">print</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">delete</span> pobject;</span><br><span class="line">	pobject = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">delete</span>[] parray;</span><br><span class="line">	parray = <span class="literal">nullptr</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\yuananxin\Pictures\c++\image-20230716220003492.png" alt="image-20230716220003492"></p>
+<h2 id="七-C-string初识"><a href="#七-C-string初识" class="headerlink" title="七, C++ string初识"></a>七, C++ string初识</h2><h3 id="1-常用创建方式"><a href="#1-常用创建方式" class="headerlink" title="1.常用创建方式"></a>1.常用创建方式</h3><h3 id="2-string-与c语言字符串的区别"><a href="#2-string-与c语言字符串的区别" class="headerlink" title="2. string 与c语言字符串的区别"></a>2. string 与c语言字符串的区别</h3><h3 id="3-string基本操作"><a href="#3-string基本操作" class="headerlink" title="3. string基本操作"></a>3. string基本操作</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//NO.1 了解c++ string常见的常见的几种创建方式</span></span><br><span class="line">	string s1;</span><br><span class="line">	s1 = <span class="string">&quot;I LOVE YOU&quot;</span>;</span><br><span class="line">	std::string s2 = <span class="string">&quot;I MISS YOU&quot;</span>;</span><br><span class="line">	<span class="function">string <span class="title">s</span><span class="params">(<span class="string">&quot;Iwantyou&quot;</span>)</span></span>;         <span class="comment">//错误写法 string s(123)</span></span><br><span class="line">	<span class="function">string <span class="title">s3</span><span class="params">(<span class="string">&quot;你好&quot;</span>)</span></span>;</span><br><span class="line">	<span class="function">string <span class="title">s4</span><span class="params">(<span class="number">4</span>, <span class="string">&#x27;o&#x27;</span>)</span></span>;            <span class="comment">//四个o初始化string对象</span></span><br><span class="line">	<span class="function">string <span class="title">s5</span><span class="params">(<span class="string">&quot;ILIKEYOU&quot;</span>, <span class="number">1</span>, <span class="number">3</span>)</span></span>;  <span class="comment">//从下标1开始 长度为3的字串</span></span><br><span class="line">	<span class="function">string <span class="title">s6</span><span class="params">(s5)</span></span>;</span><br><span class="line">	cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s1 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s2 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s3 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s4 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s5 &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; s6 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//NO.2 c++ string和c语言的 char* //printf(&quot;%s&quot;, s);是有区别</span></span><br><span class="line">	<span class="comment">//c++ string是一个类</span></span><br><span class="line">    <span class="comment">//如果你想要得到它的字符串，采用成员函数获取</span></span><br><span class="line">	<span class="comment">//c_str()  data()</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, s.<span class="built_in">data</span>());</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, s1.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//NO.3 c++ string的基本操作</span></span><br><span class="line">	<span class="comment">//增删改查 比较大小..连接 拷贝 赋值</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//3.1基本的赋值</span></span><br><span class="line">	string str;</span><br><span class="line">	str = <span class="string">&quot;你好呀&quot;</span>;</span><br><span class="line">	str = <span class="string">&quot;k&quot;</span>;</span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;        <span class="comment">//k</span></span><br><span class="line">	<span class="comment">//特殊的赋值: assign 辅助函数赋值</span></span><br><span class="line">	<span class="type">char</span> name[<span class="number">5</span>] = <span class="string">&quot;1234&quot;</span>;</span><br><span class="line">	str.<span class="built_in">assign</span>(name, name + <span class="number">5</span>);</span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;         <span class="comment">//1234</span></span><br><span class="line">	cout &lt;&lt; str.<span class="built_in">size</span>() &lt;&lt; endl;  <span class="comment">//5</span></span><br><span class="line">	str = <span class="string">&quot;1234&quot;</span>;</span><br><span class="line">	<span class="comment">//关于string长度问题，不算&#x27;\0&#x27;;</span></span><br><span class="line">	cout &lt;&lt; str.<span class="built_in">size</span>() &lt;&lt; endl;  <span class="comment">//4</span></span><br><span class="line">	str.<span class="built_in">assign</span>(<span class="number">4</span>, <span class="string">&#x27;o&#x27;</span>);</span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;         <span class="comment">//oooo</span></span><br><span class="line">	str.<span class="built_in">assign</span>(s1);</span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;          <span class="comment">//I LOVE YOU</span></span><br><span class="line">	str.<span class="built_in">assign</span>(<span class="string">&quot;IMissYou&quot;</span>, <span class="number">1</span>, <span class="number">4</span>);  <span class="comment">//Miss</span></span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//长度</span></span><br><span class="line">	cout &lt;&lt; str.<span class="built_in">length</span>() &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//string连接操作</span></span><br><span class="line">	string str2 = <span class="string">&quot;IMISSYOU&quot;</span>;</span><br><span class="line">	string str3 = <span class="string">&quot;ILOVEYOU&quot;</span>;</span><br><span class="line">	str2 = str2 + str3;</span><br><span class="line">	cout &lt;&lt; str2 &lt;&lt; endl;       <span class="comment">//IMISSYOUILOVEYOU</span></span><br><span class="line">	str2.<span class="built_in">append</span>(str3);</span><br><span class="line">	cout &lt;&lt; str2 &lt;&lt; endl;       <span class="comment">//IMISSYOUILOVEYOU</span></span><br><span class="line">	str2.<span class="built_in">append</span>(<span class="string">&quot;12345&quot;</span>,<span class="number">1</span>,<span class="number">2</span>);   <span class="comment">//IMISSYOUILOVEYOU23</span></span><br><span class="line">	cout &lt;&lt; str2 &lt;&lt; endl;</span><br><span class="line">	str2.<span class="built_in">append</span>(<span class="number">3</span>,<span class="string">&#x27;o&#x27;</span>);</span><br><span class="line">	cout &lt;&lt; str2 &lt;&lt; endl;       <span class="comment">////IMISSYOUILOVEYOU23ooo</span></span><br><span class="line">	<span class="comment">//string 的比较 可以直接用比较运算符比较 &gt; &lt; == != &gt;= &lt;=</span></span><br><span class="line">	string first = <span class="string">&quot;1234&quot;</span>;</span><br><span class="line">	string second = <span class="string">&quot;1324&quot;</span>;</span><br><span class="line">	cout &lt;&lt; (first &gt; second) &lt;&lt; endl;   <span class="comment">//0  //相等返回0,小于返回负数,大于返回正数</span></span><br><span class="line">	<span class="comment">//compare();成员函数</span></span><br><span class="line">	cout &lt;&lt; first.<span class="built_in">compare</span>(second) &lt;&lt; endl; <span class="comment">//fist-second&gt;0 //-1</span></span><br><span class="line">	cout &lt;&lt; first.<span class="built_in">compare</span>(<span class="string">&quot;12345&quot;</span>) &lt;&lt; endl;    <span class="comment">//0</span></span><br><span class="line">	cout &lt;&lt; first.<span class="built_in">compare</span>(<span class="string">&quot;12345&quot;</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; first.<span class="built_in">compare</span>(<span class="number">3</span>,<span class="number">1</span>,second,<span class="number">3</span>,<span class="number">1</span>) &lt;&lt; endl; <span class="comment">//制定第三个一个字符  //0</span></span><br><span class="line">	<span class="comment">//c++ string字串,截取</span></span><br><span class="line">	string substr = <span class="string">&quot;I LOVE YOU&quot;</span>;</span><br><span class="line">	string sub = substr.<span class="built_in">substr</span>(<span class="number">2</span>, <span class="number">8</span>); <span class="comment">//截取第二个位置到第8个位置</span></span><br><span class="line">	cout &lt;&lt; sub &lt;&lt; endl;  <span class="comment">//LOVE YOU</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//c++ string查找</span></span><br><span class="line">	<span class="comment">// find()  rfind()   	//找到的话返回下标</span></span><br><span class="line">	string::npos;  <span class="comment">//没找到返回-1</span></span><br><span class="line">	string findstr = <span class="string">&quot;Iloveyou&quot;</span>;</span><br><span class="line">	<span class="keyword">if</span> ((findstr.<span class="built_in">find</span>(<span class="string">&#x27;x&#x27;</span>) == string::npos))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;没有找到&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125; <span class="comment">//没有找到</span></span><br><span class="line">	<span class="keyword">if</span> ((findstr.<span class="built_in">find</span>(<span class="string">&#x27;o&#x27;</span>) != string::npos))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; findstr.<span class="built_in">find</span>(<span class="string">&#x27;o&#x27;</span>) &lt;&lt; endl;</span><br><span class="line">	&#125; <span class="comment">//2</span></span><br><span class="line">	<span class="keyword">if</span> ((findstr.<span class="built_in">find</span>(<span class="string">&#x27;you&#x27;</span>) != string::npos))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; findstr.<span class="built_in">find</span>(<span class="string">&#x27;you&#x27;</span>) &lt;&lt; endl;</span><br><span class="line">	&#125; <span class="comment">//7  &#x27;you&#x27;字符</span></span><br><span class="line">	<span class="keyword">if</span> ((findstr.<span class="built_in">find</span>(<span class="string">&quot;you&quot;</span>) != string::npos))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; findstr.<span class="built_in">find</span>(<span class="string">&quot;you&quot;</span>) &lt;&lt; endl;</span><br><span class="line">	&#125; <span class="comment">//5   &quot;you&quot;字符串</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//string 替换 replace函数</span></span><br><span class="line">	findstr.<span class="built_in">replace</span>(<span class="number">5</span>, <span class="number">7</span>, <span class="string">&quot;myself&quot;</span>);</span><br><span class="line">	cout &lt;&lt; findstr &lt;&lt; endl; <span class="comment">//Ilovemyself</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//删除字串</span></span><br><span class="line">	string deletstr = <span class="string">&quot;ILOVEYOU&quot;</span>;</span><br><span class="line">	deletstr.<span class="built_in">erase</span>(<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">	cout &lt;&lt; deletstr &lt;&lt; endl; <span class="comment">//IYOU</span></span><br><span class="line">	string deletst = <span class="string">&quot;ILOVEYOU&quot;</span>;</span><br><span class="line">	deletst.<span class="built_in">erase</span>();</span><br><span class="line">	cout &lt;&lt; deletst &lt;&lt; endl; <span class="comment">//全删完,无</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\yuananxin\Pictures\c++\image-20230717025409739.png" alt="image-20230717025409739"></p>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yuanaxin.cn/2023/07/23/c-%E4%B8%8Ec%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clkf41pee00001oahhu221g4e" data-title="c++与c的区别"
+               class="article-share-link">Share</a>
+            
+            
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="https://cdn.pixabay.com/photo/2017/10/26/19/45/red-2892235_1280.png" data-sizes="auto" alt="c语言分支与循环" class="lazyload">
+                    
+                
+                <a href="/2023/07/12/c%E8%AF%AD%E8%A8%80%E5%88%86%E6%94%AF%E4%B8%8E%E5%BE%AA%E7%8E%AF/"></a>
+                <div class="article-nav-caption">Older</div>
+                <h3 class="article-nav-title">
+                    
+                        c语言分支与循环
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">6</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                浅笙
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    20.4k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:19
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="浅笙" class="lazyload">
+            <div class="sidebar-author-name">浅笙</div>
+            <div class="sidebar-description">QQ:3561409438</div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">6</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yaxsn itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
